@@ -93,7 +93,7 @@ void loop() {
 
 bool motorControl(float val, byte IN1, byte IN2) {
   bool dir = (val > 0);
-  int speed = dir ? (int)(155 * abs(val) + 50) : - (int)(155 * abs(val) + 50);
+  int speed = dir ? (int)(155 * abs(val) + 50) : - (int)(155 * abs(val) + 50); // поскольку при значении ШИМ меньше 50 двигатель не работает
   
 
   if (speed > 0) { 
@@ -110,7 +110,7 @@ bool motorControl(float val, byte IN1, byte IN2) {
   return true;
 }
 
-float calcInput(int MesTime){
+float calcInput(int MesTime){         // Усреднение показаний акселерометра, чтобы снизить вклад видраций
   int rawAx, rawAy, rawAz;
   int a = 0;
   int i = 0;
